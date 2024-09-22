@@ -33,7 +33,7 @@ config t
 !!!DAPAT 7 UNDER SCORE ANG NA EDIT MO  ( LINE 34 to 68 PASTE TO COREBABA SWITCH )
 !@@@LeafSwitchONLY
 config t
-   hostname COREbab42
+   hostname COREbaba42
    enable secret pass
    service password-encryption
    no logging console
