@@ -83,8 +83,8 @@ www.psbank.com.ph [104.18.29.175]
 
 TASK2: USE STANDARD ACCESS-LIST TO BLOCK OTHER CONTRIES/CLASSMATE:
 config t
-NO ip access-list standard NOCOL1
-ip access-list standard NOCOL1
+NO ip access-list standard NOADDCLASSMATES
+ip access-list standard NOADDCLASSMATES
 DENY 10.11.0.0 0.0.255.255
 DENY 10.21.0.0 0.0.255.255
 DENY 10.31.0.0 0.0.255.255
@@ -93,8 +93,42 @@ DENY 10.51.0.0 0.0.255.255
 DENY 10.61.0.0 0.0.255.255
 Permit Any
 Int Gi 0/0/1
- ip access-group NOCOL1 in
+ ip access-group NOADDCLASSMATES in
  end
+
+TASK2.2: WITH SALAMIN CLASSMATES:
+config t
+NO ip access-list standard WITHSALAMIN
+ip access-list standard WITHSALAMIN
+DENY 10.11.0.0 0.0.255.255
+DENY 10.12.0.0 0.0.255.255
+DENY 10.31.0.0 0.0.255.255
+DENY 10.32.0.0 0.0.255.255
+DENY 10.52.0.0 0.0.255.255
+permit ANY
+Int Gi 0/0/1
+ ip access-group WITHSALAMIN in
+ end
+---------------------------------------------
+config t
+NO ip access-list standard NOSALAMIN
+ip access-list standard NOSALAMIN
+PERMIT 10.11.0.0 0.0.255.255
+PERMIT 10.12.0.0 0.0.255.255
+PERMIT 10.31.0.0 0.0.255.255
+PERMIT 10.32.0.0 0.0.255.255
+PERMIT 10.52.0.0 0.0.255.255
+Int Gi 0/0/1
+ ip access-group NOSALAMIN in
+ end
+
+!!remove acl: ping/call lahat:
+conf t
+int Gi 0/0/1
+ NO ip access-group WITHSALAMIN in
+ NO ip access-group NOSALAMIN in
+ end
+
 
 TASK3: When you become a Security Analyst:
 Learn to Block the IPaddress from 3 "BAD" countries:
@@ -179,7 +213,7 @@ Summary: NaUbos/Nalimas ang OnlineBankAccount
 
 netstat  -s  -p  tcp
 
-TASK5: HOW TO START A CAREER IN NETWORK CYBERSECURITY FOR FREE!!
+TASK5: HOW TO START A CAREER IN NETWORK CYBERSECURITY FOR FREE!!   @179 on others
 intentionally hackable websites
 1. Hack The Box
 2. CTFlearn
@@ -191,7 +225,7 @@ intentionally hackable websites
 8. OWASP Mutillidae II
 9. HackThis!!
 
-task6: How to Make CUCM intentionally hackable to Learn
+task6: How to Make CUCM intentionally hackable to Learn   @196 on others
 the Basics for Firewalls.
 before: nmap -v 10.m.100.8
 @Cucm:
