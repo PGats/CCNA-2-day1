@@ -77,7 +77,6 @@ int lo 6
  ipv6 ospf 6 area 0
  do sh ipv6 ospf neig
 
-
 TASK2: CONFIGURING IPV6 ON CISCO DEVICES:
 method1: Ipv6 autoconfig/autoBwisit
 @EDGE:
